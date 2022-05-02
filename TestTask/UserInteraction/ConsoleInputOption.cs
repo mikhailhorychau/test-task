@@ -32,4 +32,13 @@ public class ConsoleInputOption : ConsoleOption
         Value = initial;
     }
     
+    public override string ToString() => $"{Text} {_value}";
+
+    public void AddChar(char ch)
+    {
+        if (Value == "0")
+            Value = ch.ToString();
+        else
+            Value += ch;
+    }
 }
