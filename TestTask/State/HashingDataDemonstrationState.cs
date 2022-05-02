@@ -20,6 +20,7 @@ public class HashingDataDemonstrationState : IState
     private const string ContactAlreadyExists = "Контакт {0} уже существует";
     private const string ContactNotExists = "Контакт {0} не существует";
     private const string GoBack = "Назад";
+    private const string Clear = "Очистить поля";
 
     private readonly StateMachine _stateMachine;
     private readonly IUserInteraction _interaction;
@@ -62,6 +63,8 @@ public class HashingDataDemonstrationState : IState
             .AddInputOption(Name, false, NameChangedListener, _name)
             .AddInputOption(Number, true, NumberChangedListener, _number)
             .AddText("")
+            .AddSelectionOption(Clear, ClearSelect)
+            .AddText("")
             .AddSelectionOption(AddContact, AddContactSelect)
             .AddSelectionOption(UpdateContact, UpdateContactSelect)
             .AddSelectionOption(DeleteContact, DeleteContactSelect)
@@ -84,6 +87,12 @@ public class HashingDataDemonstrationState : IState
     private void NumberChangedListener(string number)
     {
         _number = number;
+    }
+
+    private void ClearSelect()
+    {
+        ClearValues();
+        DrawScreen();
     }
 
     private void AddContactSelect()
