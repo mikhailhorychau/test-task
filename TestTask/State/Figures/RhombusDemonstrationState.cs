@@ -60,9 +60,10 @@ public class RhombusDemonstrationState : IState
             .AddSelectionOption(ScreensConstants.GoBack, BackToTaskSelection);
     }
 
-    private void AngleBChangeListener(string text) => _angleA = text.ToIntOrZero();
+    private void AngleAChangeListener(string text) => _angleA = text.ToIntOrZero();
 
-    private void AngleAChangeListener(string text) => _angleB = text.ToIntOrZero();
+    private void AngleBChangeListener(string text) => _angleB = text.ToIntOrZero();
+
 
     private void WidthChangedListener(string text) => _sideA = text.ToIntOrZero();
 
