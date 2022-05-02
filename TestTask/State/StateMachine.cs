@@ -12,6 +12,7 @@ public class StateMachine
     public StateMachine(IUserInteraction interaction)
     {
         _interaction = interaction;
+        _states[typeof(InitialState)] = new InitialState(this, _interaction);
         _states[typeof(ChooseTaskState)] = new ChooseTaskState(this, _interaction);
         _states[typeof(ArraysDemonstrationState)] = new ArraysDemonstrationState(this, _interaction);
         _states[typeof(RecursionDemonstrationState)] = new RecursionDemonstrationState(this, _interaction);

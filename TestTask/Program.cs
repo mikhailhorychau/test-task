@@ -3,6 +3,6 @@ using TestTask.UserInteraction;
 
 var interaction = new ConsoleInteraction();
 var stateMachine = new StateMachine(interaction);
-stateMachine.Enter<ChooseTaskState>();
+stateMachine.Enter<InitialState>();
 interaction.StartLoop();
 

@@ -166,16 +166,10 @@ public class ConsoleInteraction : IUserInteraction
             
             if (_inputs.Contains(element))
             {
-                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
                 var input = element as ConsoleInputOption;
                 Console.Write(input?.Text + input?.Value);
                 Console.ResetColor();
-
-                // if (_currentOption == element)
-                // {
-                //     var (left, top) = Console.GetCursorPosition();
-                //     _inputPosition = new Vector2(left, top);
-                // }
                 Console.WriteLine();
                     
                 continue;
