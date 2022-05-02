@@ -47,8 +47,8 @@ public class RhombusDemonstrationState : IState
         _interaction.Clear()
             .AddText(FiguresConstants.EnterRectangleData)
             .AddInputOption(FiguresConstants.Side, true, WidthChangedListener, _sideA.ToString())
-            .AddInputOption(FiguresConstants.Angle, true, AngleAChangeListener, _sideA.ToString())
-            .AddInputOption(FiguresConstants.Angle, true, AngleBChangeListener, _sideA.ToString())
+            .AddInputOption(FiguresConstants.Angle, true, AngleAChangeListener, _angleA.ToString())
+            .AddInputOption(FiguresConstants.Angle, true, AngleBChangeListener, _angleB.ToString())
             .AddSelectionOption(FiguresConstants.Calculate, CalculateSelection)
             .IfThen(_perimeter.Length > 0 || _area.Length > 0, (interaction) =>
             {
