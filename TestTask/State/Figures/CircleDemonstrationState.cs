@@ -43,7 +43,7 @@ public class CircleDemonstrationState : IState
     private void DrawScreen()
     {
         _interaction.Clear()
-            .AddText(FiguresConstants.EnterRectangleData)
+            .AddText(FiguresConstants.EnterCircleData)
             .AddInputOption(FiguresConstants.Radius, true, RadiusChangedListener, _radius.ToString())
             .AddSelectionOption(FiguresConstants.Calculate, CalculateSelection)
             .IfThen(_perimeter.Length > 0 || _area.Length > 0, (interaction) =>

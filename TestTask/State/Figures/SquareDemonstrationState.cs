@@ -43,7 +43,7 @@ public class SquareDemonstrationState : IState
     private void DrawScreen()
     {
         _interaction.Clear()
-            .AddText(FiguresConstants.EnterRectangleData)
+            .AddText(FiguresConstants.EnterSquareData)
             .AddInputOption(FiguresConstants.Side, true, SideChangedListener, _sideA.ToString())
             .AddSelectionOption(FiguresConstants.Calculate, CalculateSelection)
             .IfThen(_perimeter.Length > 0 || _area.Length > 0, (interaction) =>

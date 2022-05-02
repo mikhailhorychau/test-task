@@ -45,7 +45,7 @@ public class RhombusDemonstrationState : IState
     private void DrawScreen()
     {
         _interaction.Clear()
-            .AddText(FiguresConstants.EnterRectangleData)
+            .AddText(FiguresConstants.EnterRhombusData)
             .AddInputOption(FiguresConstants.Side, true, WidthChangedListener, _sideA.ToString())
             .AddInputOption(FiguresConstants.Angle, true, AngleAChangeListener, _angleA.ToString())
             .AddInputOption(FiguresConstants.Angle, true, AngleBChangeListener, _angleB.ToString())
