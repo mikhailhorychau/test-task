@@ -1,4 +1,5 @@
-﻿using TestTask.Extensions;
+﻿using TestTask.Constants;
+using TestTask.Extensions;
 using TestTask.Recursion;
 using TestTask.UserInteraction;
 
@@ -6,17 +7,6 @@ namespace TestTask.State;
 
 public class RecursionDemonstrationState : IState
 {
-    private const string FindFibonacciDescription = "Введите номер элемента последовательности Фибоначи";
-    private const string FibonacciResultFormat =
-        "Элемент последовательности Фибоначи под номером {0} имеет значение {1}";
-    private const string ExponentiationResultFormat = "Число {0} в степени {1} равно {2}";
-    private const string ExponentiationDescription = "Введите данные для возведения в степень ниже";
-    private const string Calculate = "Рассчитать";
-    private const string Number = "Номер: ";
-    private const string Value = "Значение: ";
-    private const string Exp = "Степень: ";
-    private const string GoBack = "Назад";
-
     private readonly StateMachine _stateMachine;
     private readonly IUserInteraction _interaction;
 
@@ -57,26 +47,26 @@ public class RecursionDemonstrationState : IState
     private void DrawScreen()
     {
         _interaction.Clear()
-            .AddText(FindFibonacciDescription)
-            .AddInputOption(Number, true, OnFibonacciInputChanged, _fibonacciNumber.ToString())
-            .AddSelectionOption(Calculate, CalculateFibonacci)
+            .AddText(RecursionConstants.FindFibonacciDescription)
+            .AddInputOption(RecursionConstants.Number, true, OnFibonacciInputChanged, _fibonacciNumber.ToString())
+            .AddSelectionOption(ScreensConstants.Calculate, CalculateFibonacci)
             .AddText("")
             .IfThen(_fibonacciResult > 0, (interaction) =>
             {
-                interaction.AddText(string.Format(FibonacciResultFormat, _fibonacciNumber, _fibonacciResult));
+                interaction.AddText(string.Format(RecursionConstants.FibonacciResultFormat, _fibonacciNumber, _fibonacciResult));
                 interaction.AddText("");
             })
-            .AddText(ExponentiationDescription)
-            .AddInputOption(Value, true, OnExpValueInputChanged, _expValue.ToString())
-            .AddInputOption(Exp, true, OnExpInputChanged, _exp.ToString())
-            .AddSelectionOption(Calculate, CalculateExp)
+            .AddText(RecursionConstants.ExponentiationDescription)
+            .AddInputOption(RecursionConstants.Value, true, OnExpValueInputChanged, _expValue.ToString())
+            .AddInputOption(RecursionConstants.Exp, true, OnExpInputChanged, _exp.ToString())
+            .AddSelectionOption(ScreensConstants.Calculate, CalculateExp)
             .AddText("")
             .IfThen(_expResult > 0, (interaction) =>
             {
-                interaction.AddText(string.Format(ExponentiationResultFormat, _expValue, _exp, _expResult));
+                interaction.AddText(string.Format(RecursionConstants.ExponentiationResultFormat, _expValue, _exp, _expResult));
                 interaction.AddText("");
             })
-            .AddSelectionOption(GoBack, BackToTaskSelection);
+            .AddSelectionOption(ScreensConstants.GoBack, BackToTaskSelection);
     }
 
 

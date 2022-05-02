@@ -1,15 +1,11 @@
-﻿using TestTask.State.Figures;
+﻿using TestTask.Constants;
+using TestTask.State.Figures;
 using TestTask.UserInteraction;
 
 namespace TestTask.State;
 
 public class ChooseTaskState : IState
 {
-    private const string Arrays = "Массивы";
-    private const string Recursion = "Recursion";
-    private const string HashingData = "Хэширование данных";
-    private const string Figures = "Фигуры (ООП)";
-
     private readonly StateMachine _stateMachine;
     private readonly IUserInteraction _interaction;
 
@@ -22,10 +18,10 @@ public class ChooseTaskState : IState
     public void Enter()
     {
         _interaction.Clear()
-            .AddSelectionOption(Arrays, OnArraysSelect)
-            .AddSelectionOption(Recursion, OnRecursionSelect)
-            .AddSelectionOption(HashingData, OnHashingDataSelect)
-            .AddSelectionOption(Figures, InFiguresSelect);
+            .AddSelectionOption(ScreensConstants.Arrays, OnArraysSelect)
+            .AddSelectionOption(ScreensConstants.Recursion, OnRecursionSelect)
+            .AddSelectionOption(ScreensConstants.HashingData, OnHashingDataSelect)
+            .AddSelectionOption(ScreensConstants.Figures, InFiguresSelect);
     }
     
     public void Exit()

@@ -1,20 +1,13 @@
-﻿using TestTask.UserInteraction;
+﻿using TestTask.Constants;
+using TestTask.UserInteraction;
 
 namespace TestTask.State.Figures;
 
 public class FiguresDemonstrationState : IState
 {
-    private const string ChooseFigureType = "Ввыберите тип фигуры";
-    private const string Rectangle = "Прямоугольник";
-    private const string Square = "Квадрат";
-    private const string Rhombus = "Ромб";
-    private const string Circle = "Круг";
-    private const string GoBack = "Назад";
-
     private readonly StateMachine _stateMachine;
     private readonly IUserInteraction _interaction;
-
-
+    
     public FiguresDemonstrationState(StateMachine stateMachine, IUserInteraction interaction)
     {
         _stateMachine = stateMachine;
@@ -34,14 +27,14 @@ public class FiguresDemonstrationState : IState
     private void DrawScreen()
     {
         _interaction.Clear()
-            .AddText(ChooseFigureType)
+            .AddText(FiguresConstants.ChooseFigureType)
             .AddText("")
-            .AddSelectionOption(Rectangle, RectangleSelect)
-            .AddSelectionOption(Square, SquareSelect)
-            .AddSelectionOption(Rhombus, RhombusSelect)
-            .AddSelectionOption(Circle, CircleSelect)
+            .AddSelectionOption(FiguresConstants.Rectangle, RectangleSelect)
+            .AddSelectionOption(FiguresConstants.Square, SquareSelect)
+            .AddSelectionOption(FiguresConstants.Rhombus, RhombusSelect)
+            .AddSelectionOption(FiguresConstants.Circle, CircleSelect)
             .AddText("")
-            .AddSelectionOption(GoBack, BackToTaskSelection);
+            .AddSelectionOption(ScreensConstants.GoBack, BackToTaskSelection);
     }
 
     private void RectangleSelect()

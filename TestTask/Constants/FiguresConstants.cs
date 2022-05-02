@@ -15,4 +15,9 @@ public static class FiguresConstants
     public const string GoToFigureSelection = "Выбор фигуры";
     public const string Perimeter = "Периметр";
     public const string Area = "Площадь";
+    public const string ChooseFigureType = "Ввыберите тип фигуры";
+    public const string Rectangle = "Прямоугольник";
+    public const string Square = "Квадрат";
+    public const string Rhombus = "Ромб";
+    public const string Circle = "Круг";
 }

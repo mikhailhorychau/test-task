@@ -1,19 +1,14 @@
 ﻿using TestTask.Arrays;
+using TestTask.Constants;
 using TestTask.UserInteraction;
 
 namespace TestTask.State;
 
 public class ArraysDemonstrationState : IState
 {
-    private const string DiagonalSumFormat = "Сумма чисел главной диагонали: {0}";
-    private const string MultipleOfThreeFormat = "Сумма чисел кратных трём: {0}";
-    private const string GenerateAgain = "Сгенерировать заново";
-    private const string GoBack = "Назад";
-
     private readonly StateMachine _stateMachine;
     private readonly IUserInteraction _interaction;
-
-
+    
     public ArraysDemonstrationState(StateMachine stateMachine, IUserInteraction interaction)
     {
         _stateMachine = stateMachine;
@@ -36,10 +31,10 @@ public class ArraysDemonstrationState : IState
 
         _interaction.Clear()
             .AddText(arr.ToFormatString())
-            .AddText(string.Format(DiagonalSumFormat, arr.DiagonalSum()))
-            .AddText(string.Format(MultipleOfThreeFormat, arr.MultipleOfThreeSum()))
-            .AddSelectionOption(GenerateAgain, DrawScreen)
-            .AddSelectionOption(GoBack, BackToTaskSelection);
+            .AddText(string.Format(ArraysConstants.DiagonalSumFormat, arr.DiagonalSum()))
+            .AddText(string.Format(ArraysConstants.MultipleOfThreeFormat, arr.MultipleOfThreeSum()))
+            .AddSelectionOption(ArraysConstants.GenerateAgain, DrawScreen)
+            .AddSelectionOption(ScreensConstants.GoBack, BackToTaskSelection);
     }
 
     private void BackToTaskSelection()
